@@ -83,7 +83,7 @@ func wxworkNotifyBuilder(cfg map[string]interface{}) (notify.Notify, error) {
 	client := workwx.New(wxworkdConfig.CorpID)
 
 	app := client.WithApp(wxworkdConfig.CorpSecret, wxworkdConfig.AgentID)
-	app.SpawnJSAPITicketRefresher()
+	app.SpawnAccessTokenRefresher()
 
 	return &wxworkNotify{
 		cfg: wxworkdConfig,
