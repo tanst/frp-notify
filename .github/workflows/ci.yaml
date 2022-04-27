@@ -29,8 +29,8 @@ jobs:
         run: |
             cd cmd
             go build -o frp-notify main.go
-            mkdir frp-notify
-            mv frp-notify ./frp-notify/
+            mkdir up
+            mv frp-notify ./up/
       - name: 上传 frp-notify
         uses: actions/upload-artifact@v2
         with:
