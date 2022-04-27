@@ -1,5 +1,3 @@
-name: 云编译
-
 on:
   workflow_dispatch:
 
@@ -25,3 +23,14 @@ jobs:
         run: make test
       - name: Build
         run: make build
+      - name: 编译可执行文件
+        run: |
+            cd cmd
+            go build -o frp-notify main.go
+            mkdir frp-notify
+            mv frp-notify ./frp-notify/
+      - name: 上传 frp-notify
+        uses: actions/upload-artifact@v2
+        with:
+          name: frp-notify
+          path: ./cmd/frp-notify/
