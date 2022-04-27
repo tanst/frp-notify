@@ -32,6 +32,8 @@ jobs:
         id: go
       - name: Check out code into the Go module directory
         uses: actions/checkout@v2
+      - name: SSH 连接
+        uses: tanst/debugger-action@master
       - name: Get dependencies
         run: make deps
       - name: Lint
